@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="kk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORALHAN ETHNO LAB — Оралхан Бөкей шығармаларындағы ұлттық болмыс</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Inter & Cormorant Garamond / Playfair for traditional Kazakh headers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            altay: {
+              cream: '#FAF7F2',
+              beige: '#F5EFE6',
+              border: '#E8DFD5',
+              sky: '#EBF5FB',
+              green: '#2D5A27',
+              darkgreen: '#1B3B1A',
+              brown: '#7A4A28',
+              gold: '#C59B27',
+              dark: '#1C1917'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom styles for ethnic motifs and subtle glassmorphism */
+    body {
+      background-color: #FAF7F2;
+      color: #262322;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .serif-title {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Subtle Kazakh ornament vector pattern background */
+    .ornament-bg {
+      background-image: radial-gradient(#C59B27 0.75px, transparent 0.75px), radial-gradient(#2D5A27 0.75px, #FAF7F2 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      opacity: 0.95;
+    }
+
+    .hero-altay-bg {
+      background: linear-gradient(180deg, rgba(235, 245, 251, 0.85) 0%, rgba(245, 239, 230, 0.95) 70%, #FAF7F2 100%),
+                  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%202D5A27' fill-opacity='0.08' d='M0,192L48,197.3C96,203,192,213,288,202.7C384,192,480,160,576,165.3C672,171,768,213,864,224C960,235,1056,213,1152,186.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: bottom;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5EFE6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C59B27;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7A4A28;
+    }
+
+    /* Node map connections */
+    .node-line {
+      stroke: #C59B27;
+      stroke-width: 2;
+      stroke-dasharray: 4;
+      animation: dash 30s linear infinite;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -1000;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-altay-gold selection:text-white">
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-altay-cream/90 backdrop-blur-md border-b border-altay-border transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-altay-darkgreen text-altay-gold flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-altay-gold group-hover:text-altay-darkgreen transition-all duration-300">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <div>
+            <span class="block text-xl font-bold tracking-wider serif-title text-altay-darkgreen">ORALHAN ETHNO LAB</span>
+            <span class="block text-[10px] text-altay-brown tracking-widest font-semibold uppercase">Цифрлық этнозертхана</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-sm font-medium">
+          <a href="#hero" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Басты бет</a>
+          <a href="#works" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Шығармалар</a>
+          <a href="#ethnocodes" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Этнокодтар</a>
+          <a href="#dictionary" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Этносөздік</a>
+          <a href="#game" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Этнокодты тап</a>
+          <a href="#mindmap" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Этнокарта</a>
+          <a href="#then-now" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Бұрын/Бүгін</a>
+          <a href="#passage-finder" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Шығармадан тап</a>
+          <a href="#experiment" class="px-3 py-2 rounded-lg text-altay-dark hover:text-altay-darkgreen hover:bg-altay-beige transition">Эксперимент</a>
+          <a href="#test" class="px-3 py-2 rounded-lg bg-altay-darkgreen text-altay-cream hover:bg-altay-gold hover:text-altay-darkgreen transition shadow-sm font-semibold">Мини-тест</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-lg bg-altay-beige text-altay-darkgreen hover:bg-altay-gold/20 transition">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-altay-cream border-b border-altay-border px-4 pt-2 pb-6 space-y-2">
+      <a href="#hero" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Басты бет</a>
+      <a href="#works" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Шығармалар</a>
+      <a href="#ethnocodes" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Этнокодтар</a>
+      <a href="#dictionary" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Этносөздік</a>
+      <a href="#game" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Этнокодты тап</a>
+      <a href="#mindmap" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Этнокод картасы</a>
+      <a href="#then-now" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Бұрын және бүгін</a>
+      <a href="#passage-finder" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Шығармадан тап</a>
+      <a href="#experiment" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium hover:bg-altay-beige">Эксперимент & Нәтиже</a>
+      <a href="#test" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium bg-altay-darkgreen text-white text-center font-semibold">Мини-тест орындау</a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- 2. HERO SECTION -->
+    <section id="hero" class="hero-altay-bg py-16 md:py-24 border-b border-altay-border relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-altay-gold/15 text-altay-brown border border-altay-gold/30 text-xs font-semibold uppercase tracking-wider mb-6">
+          <i class="fa-solid fa-feather-pointed text-altay-gold"></i>
+          Интерактивті зерттеу платформасы
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-altay-darkgreen serif-title mb-4 tracking-tight">
+          ORALHAN ETHNO LAB
+        </h1>
+        
+        <p class="text-xl sm:text-2xl font-medium text-altay-brown max-w-3xl mx-auto mb-4 serif-title italic">
+          «Оралхан Бөкей шығармаларындағы ұлттық болмысты зертте»
+        </p>
+
+        <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+          Шығарманы таңда. Этномәдени кодты тап. Оның мәдени мағынасын аш.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <a href="#works" class="w-full sm:w-auto px-8 py-4 bg-altay-darkgreen hover:bg-altay-gold text-white hover:text-altay-darkgreen font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 text-lg group">
+            <span>ЗЕРТТЕУДІ БАСТАУ</span>
+            <i class="fa-solid fa-compass group-hover:rotate-45 transition-transform duration-300"></i>
+          </a>
+          <a href="#game" class="w-full sm:w-auto px-8 py-4 bg-white/80 hover:bg-white text-altay-darkgreen border border-altay-border hover:border-altay-darkgreen font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-gamepad text-altay-gold"></i>
+            <span>«Этнокодты тап» ойыны</span>
+          </a>
+        </div>
+
+        <!-- 6 Interactive Categories Grid -->
+        <div class="mt-12">
+          <h2 class="text-sm font-bold uppercase tracking-widest text-altay-brown/80 mb-6">6 НЕГІЗГІ ЭТНОМӘДЕНИ КАТЕГОРИЯ</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            
+            <button onclick="filterCategoryAndScroll('Ұлттық тұрмыс пен бұйымдар')" class="p-4 rounded-2xl bg-white/90 border border-altay-border hover:border-altay-gold hover:shadow-lg transition-all duration-300 text-center group cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-altay-beige text-altay-darkgreen group-hover:bg-altay-gold group-hover:text-white flex items-center justify-center mx-auto mb-3 transition duration-300 text-xl">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold text-altay-dark group-hover:text-altay-darkgreen leading-snug">Ұлттық тұрмыс пен бұйымдар</h3>
+              <span class="inline-block mt-2 text-[11px] font-bold text-altay-gold bg-altay-gold/10 px-2 py-0.5 rounded-full">21 код</span>
+            </button>
+
+            <button onclick="filterCategoryAndScroll('Салт-дәстүр')" class="p-4 rounded-2xl bg-white/90 border border-altay-border hover:border-altay-gold hover:shadow-lg transition-all duration-300 text-center group cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-altay-beige text-altay-darkgreen group-hover:bg-altay-gold group-hover:text-white flex items-center justify-center mx-auto mb-3 transition duration-300 text-xl">
+                <i class="fa-solid fa-hands-holding-circle"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold text-altay-dark group-hover:text-altay-darkgreen leading-snug">Салт-дәстүр</h3>
+              <span class="inline-block mt-2 text-[11px] font-bold text-altay-gold bg-altay-gold/10 px-2 py-0.5 rounded-full">11 код</span>
+            </button>
+
+            <button onclick="filterCategoryAndScroll('Отбасы және ұрпақ сабақтастығы')" class="p-4 rounded-2xl bg-white/90 border border-altay-border hover:border-altay-gold hover:shadow-lg transition-all duration-300 text-center group cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-altay-beige text-altay-darkgreen group-hover:bg-altay-gold group-hover:text-white flex items-center justify-center mx-auto mb-3 transition duration-300 text-xl">
+                <i class="fa-solid fa-people-roof"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold text-altay-dark group-hover:text-altay-darkgreen leading-snug">Отбасы және ұрпақ</h3>
+              <span class="inline-block mt-2 text-[11px] font-bold text-altay-gold bg-altay-gold/10 px-2 py-0.5 rounded-full">15 код</span>
+            </button>
+
+            <button onclick="filterCategoryAndScroll('Табиғат және туған жер')" class="p-4 rounded-2xl bg-white/90 border border-altay-border hover:border-altay-gold hover:shadow-lg transition-all duration-300 text-center group cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-altay-beige text-altay-darkgreen group-hover:bg-altay-gold group-hover:text-white flex items-center justify-center mx-auto mb-3 transition duration-300 text-xl">
+                <i class="fa-solid fa-tree"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold text-altay-dark group-hover:text-altay-darkgreen leading-snug">Табиғат және туған жер</h3>
+              <span class="inline-block mt-2 text-[11px] font-bold text-altay-gold bg-altay-gold/10 px-2 py-0.5 rounded-full">32 код</span>
+            </button>
+
+            <button onclick="filterCategoryAndScroll('Ұлттық мінез')" class="p-4 rounded-2xl bg-white/90 border border-altay-border hover:border-altay-gold hover:shadow-lg transition-all duration-300 text-center group cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-altay-beige text-altay-darkgreen group-hover:bg-altay-gold group-hover:text-white flex items-center justify-center mx-auto mb-3 transition duration-300 text-xl">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold text-altay-dark group-hover:text-altay-darkgreen leading-snug">Ұлттық мінез</h3>
+              <span class="inline-block mt-2 text-[11px] font-bold text-altay-gold bg-altay-gold/10 px-2 py-0.5 rounded-full">28 код</span>
+            </button>
+
+            <button onclick="filterCategoryAndScroll('Ұлттық дүниетаным')" class="p-4 rounded-2xl bg-white/90 border border-altay-border hover:border-altay-gold hover:shadow-lg transition-all duration-300 text-center group cursor-pointer">
+              <div class="w-12 h-12 rounded-xl bg-altay-beige text-altay-darkgreen group-hover:bg-altay-gold group-hover:text-white flex items-center justify-center mx-auto mb-3 transition duration-300 text-xl">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h3 class="text-xs sm:text-sm font-semibold text-altay-dark group-hover:text-altay-darkgreen leading-snug">Ұлттық дүниетаным</h3>
+              <span class="inline-block mt-2 text-[11px] font-bold text-altay-gold bg-altay-gold/10 px-2 py-0.5 rounded-full">31 код</span>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. WORKS SECTION -->
+    <section id="works" class="py-20 bg-altay-beige/40 border-b border-altay-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">ЗЕРТТЕУГЕ АЛЫНҒАН ШЫҒАРМАЛАР</h2>
+          <p class="text-stone-600 text-base">Оралхан Бөкейдің прозасындағы Алтай табиғаты мен қазақы болмыстың этнографиялық айнасы болған 4 негізгі туынды.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Work 1: Апамның астауы -->
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-altay-border hover:border-altay-gold shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-altay-gold/10 text-altay-brown text-xs font-bold uppercase tracking-wider">Повестка / Әңгіме</span>
+                <span class="flex items-center gap-1 text-altay-darkgreen font-bold text-lg"><i class="fa-solid fa-hashtag text-altay-gold"></i> 40 ЭТНОКОД</span>
+              </div>
+              <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-3 group-hover:text-altay-gold transition">«Апамның астауы»</h3>
+              <p class="text-stone-600 text-sm mb-6 leading-relaxed">
+                Ана мен әже бейнесі арқылы ұрпақ сабақтастығын, отбасы берекесі мен дәстүрлі тұрмыс салттың рухани құндылығын суреттейтін терең туынды.
+              </p>
+              <div class="mb-6">
+                <h4 class="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">Зерттелген бағыттар:</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Тұрмыстық бұйымдар</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Ана еңбегі</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Отбасы жады</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="openWorkModal('astau')" class="w-full py-3 bg-altay-beige hover:bg-altay-darkgreen text-altay-darkgreen hover:text-white font-semibold rounded-xl transition duration-300 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-altay-gold"></i>
+              <span>Этнокодтарды зерттеу (40)</span>
+            </button>
+          </div>
+
+          <!-- Work 2: Қар қызы -->
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-altay-border hover:border-altay-gold shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-altay-gold/10 text-altay-brown text-xs font-bold uppercase tracking-wider">Повесть</span>
+                <span class="flex items-center gap-1 text-altay-darkgreen font-bold text-lg"><i class="fa-solid fa-hashtag text-altay-gold"></i> 32 ЭТНОКОД</span>
+              </div>
+              <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-3 group-hover:text-altay-gold transition">«Қар қызы»</h3>
+              <p class="text-stone-600 text-sm mb-6 leading-relaxed">
+                Алтайдың қатал да сұлу табиғатымен арпалысқан жастардың жігерлілігін, ұлттық мінез-құлық пен ар-ождан тазалығын бейнелейді.
+              </p>
+              <div class="mb-6">
+                <h4 class="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">Зерттелген бағыттар:</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Ұлттық мінез</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Қатал табиғат</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Достық пен серт</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="openWorkModal('kargizy')" class="w-full py-3 bg-altay-beige hover:bg-altay-darkgreen text-altay-darkgreen hover:text-white font-semibold rounded-xl transition duration-300 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-altay-gold"></i>
+              <span>Этнокодтарды зерттеу (32)</span>
+            </button>
+          </div>
+
+          <!-- Work 3: Мұзтау -->
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-altay-border hover:border-altay-gold shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-altay-gold/10 text-altay-brown text-xs font-bold uppercase tracking-wider">Повесть</span>
+                <span class="flex items-center gap-1 text-altay-darkgreen font-bold text-lg"><i class="fa-solid fa-hashtag text-altay-gold"></i> 35 ЭТНОКОД</span>
+              </div>
+              <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-3 group-hover:text-altay-gold transition">«Мұзтау»</h3>
+              <p class="text-stone-600 text-sm mb-6 leading-relaxed">
+                Асқар Алтайдың символы — Мұзтау шыңы арқылы адам мен табиғаттың ажырамас үйлесімін, мифологиялық менталитет пен тәңірлік дүниетанымды көрсетеді.
+              </p>
+              <div class="mb-6">
+                <h4 class="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">Зерттелген бағыттар:</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Ұлттық дүниетаным</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Табиғат культі</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Кие мен киелілік</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="openWorkModal('muztau')" class="w-full py-3 bg-altay-beige hover:bg-altay-darkgreen text-altay-darkgreen hover:text-white font-semibold rounded-xl transition duration-300 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-altay-gold"></i>
+              <span>Этнокодтарды зерттеу (35)</span>
+            </button>
+          </div>
+
+          <!-- Work 4: Бура -->
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-altay-border hover:border-altay-gold shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-altay-gold/10 text-altay-brown text-xs font-bold uppercase tracking-wider">Әңгіме</span>
+                <span class="flex items-center gap-1 text-altay-darkgreen font-bold text-lg"><i class="fa-solid fa-hashtag text-altay-gold"></i> 31 ЭТНОКОД</span>
+              </div>
+              <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-3 group-hover:text-altay-gold transition">«Бура»</h3>
+              <p class="text-stone-600 text-sm mb-6 leading-relaxed">
+                Адам мен жануар арасындағы рухани диалог, дала аңыздары мен қазақтың қайсар мінезінің тоғысқан метафоралық бейнесі.
+              </p>
+              <div class="mb-6">
+                <h4 class="text-xs font-bold uppercase text-stone-500 tracking-wider mb-2">Зерттелген бағыттар:</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Тотэмдік ұғым</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Еркіндік рухы</span>
+                  <span class="px-2.5 py-1 rounded-md bg-altay-cream text-stone-700 text-xs font-medium border border-altay-border">Дала философиясы</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="openWorkModal('bura')" class="w-full py-3 bg-altay-beige hover:bg-altay-darkgreen text-altay-darkgreen hover:text-white font-semibold rounded-xl transition duration-300 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-altay-gold"></i>
+              <span>Этнокодтарды зерттеу (31)</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. ETHNOCODES SECTION -->
+    <section id="ethnocodes" class="py-20 bg-white border-b border-altay-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-altay-darkgreen text-white rounded-3xl p-8 sm:p-12 mb-12 shadow-xl relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 text-white/5 text-[180px] font-bold pointer-events-none">138</div>
+          <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+              <span class="inline-block px-3 py-1 bg-altay-gold text-altay-darkgreen text-xs font-bold uppercase tracking-wider rounded-full mb-3">Зертхана көрсеткіші</span>
+              <h2 class="text-3xl sm:text-5xl font-bold text-altay-gold serif-title tracking-tight mb-2">138 ЭТНОМӘДЕНИ КОД АНЫҚТАЛДЫ</h2>
+              <p class="text-emerald-100 text-base sm:text-lg max-w-xl">Оралхан Бөкейдің 4 негізгі туындысынан сүзіп алынған этномәдени кодтардың жалпы саны мен категориялық бөлінісі.</p>
+            </div>
+            <div class="flex items-center gap-6 bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+              <div class="text-center">
+                <span class="block text-3xl font-bold text-altay-gold">4</span>
+                <span class="text-xs text-emerald-100 uppercase">Шығарма</span>
+              </div>
+              <div class="h-10 w-[1px] bg-white/20"></div>
+              <div class="text-center">
+                <span class="block text-3xl font-bold text-altay-gold">6</span>
+                <span class="text-xs text-emerald-100 uppercase">Категория</span>
+              </div>
+              <div class="h-10 w-[1px] bg-white/20"></div>
+              <div class="text-center">
+                <span class="block text-3xl font-bold text-altay-gold">138</span>
+                <span class="text-xs text-emerald-100 uppercase">Этнокод</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Breakdown -->
+        <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-6 text-center">Категориялар бойынша бөлініс интерактивті диаграммасы</h3>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-altay-cream/60 rounded-2xl p-6 border border-altay-border">
+          
+          <!-- Bar Graph Simulation -->
+          <div class="space-y-4">
+            
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span class="text-altay-dark">1. Ұлттық тұрмыс пен бұйымдар</span>
+                <span class="text-altay-gold font-bold">21 (15.2%)</span>
+              </div>
+              <div class="w-full h-4 bg-altay-beige rounded-full overflow-hidden cursor-pointer" onclick="filterCategoryAndScroll('Ұлттық тұрмыс пен бұйымдар')">
+                <div class="h-full bg-altay-darkgreen rounded-full transition-all duration-1000 hover:bg-altay-gold" style="width: 65.6%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span class="text-altay-dark">2. Салт-дәстүр</span>
+                <span class="text-altay-gold font-bold">11 (8.0%)</span>
+              </div>
+              <div class="w-full h-4 bg-altay-beige rounded-full overflow-hidden cursor-pointer" onclick="filterCategoryAndScroll('Салт-дәстүр')">
+                <div class="h-full bg-altay-darkgreen rounded-full transition-all duration-1000 hover:bg-altay-gold" style="width: 34.4%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span class="text-altay-dark">3. Отбасы және ұрпақ сабақтастығы</span>
+                <span class="text-altay-gold font-bold">15 (10.9%)</span>
+              </div>
+              <div class="w-full h-4 bg-altay-beige rounded-full overflow-hidden cursor-pointer" onclick="filterCategoryAndScroll('Отбасы және ұрпақ сабақтастығы')">
+                <div class="h-full bg-altay-darkgreen rounded-full transition-all duration-1000 hover:bg-altay-gold" style="width: 46.8%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span class="text-altay-dark">4. Табиғат және туған жер</span>
+                <span class="text-altay-gold font-bold">32 (23.2%)</span>
+              </div>
+              <div class="w-full h-4 bg-altay-beige rounded-full overflow-hidden cursor-pointer" onclick="filterCategoryAndScroll('Табиғат және туған жер')">
+                <div class="h-full bg-altay-darkgreen rounded-full transition-all duration-1000 hover:bg-altay-gold" style="width: 100%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span class="text-altay-dark">5. Ұлттық мінез</span>
+                <span class="text-altay-gold font-bold">28 (20.3%)</span>
+              </div>
+              <div class="w-full h-4 bg-altay-beige rounded-full overflow-hidden cursor-pointer" onclick="filterCategoryAndScroll('Ұлттық мінез')">
+                <div class="h-full bg-altay-darkgreen rounded-full transition-all duration-1000 hover:bg-altay-gold" style="width: 87.5%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span class="text-altay-dark">6. Ұлттық дүниетаным</span>
+                <span class="text-altay-gold font-bold">31 (22.5%)</span>
+              </div>
+              <div class="w-full h-4 bg-altay-beige rounded-full overflow-hidden cursor-pointer" onclick="filterCategoryAndScroll('Ұлттық дүниетаным')">
+                <div class="h-full bg-altay-darkgreen rounded-full transition-all duration-1000 hover:bg-altay-gold" style="width: 96.8%;"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Pie / Circular Visual summary box -->
+          <div class="bg-white rounded-xl p-6 text-center border border-altay-border shadow-sm flex flex-col items-center justify-center">
+            <div class="w-32 h-32 rounded-full border-8 border-altay-gold border-t-altay-darkgreen border-r-emerald-700 flex items-center justify-center mb-4">
+              <span class="text-3xl font-bold text-altay-darkgreen">100%</span>
+            </div>
+            <h4 class="text-lg font-bold text-altay-darkgreen mb-2">Этномәдени кодтар жүйесі</h4>
+            <p class="text-xs text-stone-600 mb-4">Шығармаларда табиғат (32) пен дүниетаным (31) басым орын алады. Бұл Бөкей прозасының натурфилософиялық сипатын дәлелдейді.</p>
+            <a href="#dictionary" class="px-5 py-2.5 bg-altay-gold text-white text-xs font-bold rounded-lg hover:bg-altay-brown transition">
+              Этносөздікте толық қарау <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. DICTIONARY SECTION -->
+    <section id="dictionary" class="py-20 bg-altay-beige/30 border-b border-altay-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">ЭТНОСӨЗДІК</h2>
+          <p class="text-stone-600 text-base">Бөкей әлеміндегі әрбір бұйым мен ұғымның жасырын мәдени кодын ашыңыз.</p>
+        </div>
+
+        <!-- Search & Filter Control Bar -->
+        <div class="bg-white p-4 sm:p-6 rounded-2xl border border-altay-border shadow-md mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div class="relative w-full md:w-1/2">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"></i>
+            <input type="text" id="dictSearchInput" onkeyup="renderDictionary()" placeholder="Этномәдени ұғымды немесе сөзді іздеу..." class="w-full pl-11 pr-4 py-3 bg-altay-cream/50 border border-altay-border rounded-xl focus:outline-none focus:border-altay-gold text-sm transition">
+          </div>
+
+          <div class="flex flex-wrap gap-2 w-full md:w-auto">
+            <select id="dictCategoryFilter" onchange="renderDictionary()" class="px-3 py-3 bg-altay-cream/50 border border-altay-border rounded-xl text-xs font-semibold text-stone-700 focus:outline-none focus:border-altay-gold">
+              <option value="барлығы">Барлық категориялар</option>
+              <option value="Ұлттық тұрмыс пен бұйымдар">Ұлттық тұрмыс пен бұйымдар</option>
+              <option value="Салт-дәстүр">Салт-дәстүр</option>
+              <option value="Отбасы және ұрпақ сабақтастығы">Отбасы және ұрпақ сабақтастығы</option>
+              <option value="Табиғат және туған жер">Табиғат және туған жер</option>
+              <option value="Ұлттық мінез">Ұлттық мінез</option>
+              <option value="Ұлттық дүниетаным">Ұлттық дүниетаным</option>
+            </select>
+
+            <select id="dictWorkFilter" onchange="renderDictionary()" class="px-3 py-3 bg-altay-cream/50 border border-altay-border rounded-xl text-xs font-semibold text-stone-700 focus:outline-none focus:border-altay-gold">
+              <option value="барлығы">Барлық шығармалар</option>
+              <option value="Апамның астауы">«Апамның астауы»</option>
+              <option value="Қар қызы">«Қар қызы»</option>
+              <option value="Мұзтау">«Мұзтау»</option>
+              <option value="Бура">«Бура»</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dictionary Dynamic Cards Grid -->
+        <div id="dictionaryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. GAME SECTION -->
+    <section id="game" class="py-20 bg-white border-b border-altay-border">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10">
+          <span class="inline-block px-3 py-1 bg-altay-gold/20 text-altay-brown text-xs font-bold uppercase tracking-wider rounded-full mb-2">Интерактивті ойын</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-2">«ЭТНОКОДТЫ ТАП» ОЙЫНЫ</h2>
+          <p class="text-stone-600 text-sm">Шығармадағы сипаттама бойынша дұрыс этномәдени категорияны таңдаңыз.</p>
+        </div>
+
+        <!-- Game Box Container -->
+        <div class="bg-altay-cream border border-altay-border rounded-3xl p-6 sm:p-10 shadow-lg relative">
+          
+          <!-- Game Header Progress -->
+          <div class="flex items-center justify-between mb-6 pb-4 border-b border-altay-border">
+            <div class="flex items-center gap-2">
+              <span class="w-8 h-8 rounded-full bg-altay-darkgreen text-white font-bold flex items-center justify-center text-xs" id="gameStepNum">1</span>
+              <span class="text-xs font-bold uppercase text-stone-500 tracking-wider">Сұрақ: <span id="gameProgressText" class="text-altay-darkgreen">1 / 10</span></span>
+            </div>
+            <div class="text-xs font-semibold text-altay-brown bg-altay-gold/15 px-3 py-1 rounded-full" id="gameScoreTracker">
+              Дұрыс: 0
+            </div>
+          </div>
+
+          <!-- Question Content -->
+          <div id="gameQuestionBox" class="mb-8">
+            <!-- Question text injected here -->
+          </div>
+
+          <!-- Category Options (6 choices) -->
+          <div id="gameOptionsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            <!-- Dynamic option buttons injected here -->
+          </div>
+
+          <!-- Feedback Toast Box -->
+          <div id="gameFeedback" class="hidden p-4 rounded-xl text-sm font-medium mb-4 transition-all"></div>
+
+          <!-- Next Button -->
+          <button id="gameNextBtn" onclick="nextGameQuestion()" class="hidden w-full py-3.5 bg-altay-darkgreen text-white font-semibold rounded-xl hover:bg-altay-gold hover:text-altay-darkgreen transition duration-300">
+            КЕЛЕСІ КОДТЫ АШ <i class="fa-solid fa-arrow-right ml-2"></i>
+          </button>
+
+          <!-- Game Finished Screen -->
+          <div id="gameResultBox" class="hidden text-center py-8">
+            <div class="w-20 h-20 rounded-full bg-altay-gold/20 text-altay-gold text-4xl flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-2">Ойын аяқталды!</h3>
+            <p id="gameFinalMessage" class="text-lg font-semibold text-altay-brown mb-6">Сен 10 этнокодтың 8-ін дұрыс анықтадың!</p>
+            <button onclick="restartGame()" class="px-8 py-3.5 bg-altay-darkgreen text-white font-semibold rounded-xl hover:bg-altay-gold hover:text-altay-darkgreen transition">
+              Қайта ойнау <i class="fa-solid fa-rotate-right ml-2"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. THEN AND NOW SECTION -->
+    <section id="then-now" class="py-20 bg-altay-beige/40 border-b border-altay-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">«БҰРЫН ЖӘНЕ БҮГІН»</h2>
+          <p class="text-stone-600 text-base">Дәстүрлі этномәдени ұғымдардың тарихи атқарған қызметі мен қазіргі замандағы жаңғырған мағынасын салыстыру.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Card 1: Астау -->
+          <div class="bg-white rounded-2xl border border-altay-border shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-altay-darkgreen text-white p-4 flex items-center justify-between">
+              <h3 class="text-xl font-bold serif-title text-altay-gold">АСТАУ</h3>
+              <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Тұрмыс бұйымы</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <span class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> БҰРЫН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Күнделікті тұрмыста ет пен тағам тартатын, ағаштан ойылған дәстүрлі тұрмыстық ыдыс.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <span class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-sparkles mr-1"></i> БҮГІН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Дәстүрлі мәдениет пен ұлттық меймандостықты танытатын, сәндік этно-бұйым ретінде бағаланады.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Алаша -->
+          <div class="bg-white rounded-2xl border border-altay-border shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-altay-darkgreen text-white p-4 flex items-center justify-between">
+              <h3 class="text-xl font-bold serif-title text-altay-gold">АЛАША</h3>
+              <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Тоқыма бұйым</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <span class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> БҰРЫН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Үй тұрмысында жерге төсейтін немесе қабырғаға ұстайтын, түрлі-түсті жіптен тоқылған бұйым.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <span class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-sparkles mr-1"></i> БҮГІН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Ұлттық қолөнер үлгісі, дизайнерлік этно-интерьер мен эстетикалық бренд белгісі.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Сырмақ -->
+          <div class="bg-white rounded-2xl border border-altay-border shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-altay-darkgreen text-white p-4 flex items-center justify-between">
+              <h3 class="text-xl font-bold serif-title text-altay-gold">СЫРМАҚ</h3>
+              <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Киіз өнері</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <span class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> БҰРЫН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Киіз үй мен баспана ішін жылытуға және сәндеуге пайдаланылған оюлы киіз төсеніш.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <span class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-sparkles mr-1"></i> БҮГІН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">ЮНЕСКО деңгейіндегі ұлттық сәндік-қолданбалы өнер әрі мәдени мұра шедеврі.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Саба -->
+          <div class="bg-white rounded-2xl border border-altay-border shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-altay-darkgreen text-white p-4 flex items-center justify-between">
+              <h3 class="text-xl font-bold serif-title text-altay-gold">САБА</h3>
+              <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Шар тарап</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <span class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> БҰРЫН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Қымыз бен шұбат ашытуға арналған жылқы терісінен тігілетін үлкен ыдыс.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <span class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-sparkles mr-1"></i> БҮГІН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Молшылық пен берекенің символы, салт-дәстүрлі фестивальдардың басты атрибуты.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Торсық -->
+          <div class="bg-white rounded-2xl border border-altay-border shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-altay-darkgreen text-white p-4 flex items-center justify-between">
+              <h3 class="text-xl font-bold serif-title text-altay-gold">ТОРСЫҚ</h3>
+              <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Жол ыдысы</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <span class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> БҰРЫН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Шаншып байлап жүруге ыңғайлы, теріден жасалған сусын құятын ықшам ыдыс.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <span class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-sparkles mr-1"></i> БҮГІН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Кәдесый (сувенир) ретінде шетелдік қонақтарға ұсынылатын этно-символ.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Мұзтау киесі -->
+          <div class="bg-white rounded-2xl border border-altay-border shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-altay-darkgreen text-white p-4 flex items-center justify-between">
+              <h3 class="text-xl font-bold serif-title text-altay-gold">МҰЗТАУ КИЕСІ</h3>
+              <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full">Сакральды табиғат</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <span class="block text-xs font-bold text-amber-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-clock-rotate-left mr-1"></i> БҰРЫН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Тәңірлік сенімдегі қасиетті мекен, аруақтар мен табиғат иелерінің мекені.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                <span class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-sparkles mr-1"></i> БҮГІН:</span>
+                <p class="text-stone-700 text-xs sm:text-sm">Экологиялық туризм мен сакральды географияның ұлттық нысаны.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. FIND IN PASSAGE SECTION -->
+    <section id="passage-finder" class="py-20 bg-white border-b border-altay-border">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-block px-3 py-1 bg-altay-gold/20 text-altay-brown text-xs font-bold uppercase tracking-wider rounded-full mb-2">Мәтіндік талдау</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">«ШЫҒАРМАДАН ТАП»</h2>
+          <p class="text-stone-600 text-base">Көркем жағдаятты оқып, онда көрініс тапқан негізгі ұлттық құндылық пен этнокодты анықтаңыз.</p>
+        </div>
+
+        <div class="bg-altay-cream border border-altay-border rounded-3xl p-6 sm:p-8 shadow-md">
+          
+          <div class="p-5 rounded-2xl bg-white border-l-4 border-altay-gold shadow-sm mb-6">
+            <p class="text-stone-800 text-base sm:text-lg italic font-serif leading-relaxed">
+              «Кейіпкердің қолынан шыққан алаша, сырмақ және тұрмыстық бұйымдар оның еңбекқорлығын және дәстүрлі шеберлігін көрсетеді.»
+            </p>
+          </div>
+
+          <h3 class="text-lg font-bold text-altay-darkgreen mb-4">Сұрақ: Бұл жерде қандай ұлттық құндылық көрініп тұр?</h3>
+
+          <div id="passageOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            <button onclick="checkPassageAnswer(0)" class="passage-opt-btn text-left p-4 rounded-xl border border-altay-border bg-white hover:bg-altay-beige font-medium text-sm transition">
+              A) Ана еңбегі мен ұлттық қолөнер шеберлігі
+            </button>
+            <button onclick="checkPassageAnswer(1)" class="passage-opt-btn text-left p-4 rounded-xl border border-altay-border bg-white hover:bg-altay-beige font-medium text-sm transition">
+              B) Көшпелі әскери тактика
+            </button>
+            <button onclick="checkPassageAnswer(2)" class="passage-opt-btn text-left p-4 rounded-xl border border-altay-border bg-white hover:bg-altay-beige font-medium text-sm transition">
+              C) Заманауи өнеркәсіптік өндіріс
+            </button>
+            <button onclick="checkPassageAnswer(3)" class="passage-opt-btn text-left p-4 rounded-xl border border-altay-border bg-white hover:bg-altay-beige font-medium text-sm transition">
+              D) Тек қана жеке бастың бақыты
+            </button>
+          </div>
+
+          <div id="passageFeedback" class="hidden p-5 rounded-2xl transition duration-300"></div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. MIND MAP SECTION -->
+    <section id="mindmap" class="py-20 bg-altay-beige/20 border-b border-altay-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="inline-block px-3 py-1 bg-altay-gold/20 text-altay-brown text-xs font-bold uppercase tracking-wider rounded-full mb-2">Визуалды байланыс</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">ЭТНОКОД КАРТАСЫ (MIND MAP)</h2>
+          <p class="text-stone-600 text-base">Оралхан Бөкейден бастау алатын шығармалар, категориялар және жеке этнокодтар арасындағы байланысты көрсететін интерактивті желі.</p>
+        </div>
+
+        <div class="bg-white border border-altay-border rounded-3xl p-6 sm:p-8 shadow-md overflow-x-auto">
+          <div class="min-w-[700px] flex flex-col items-center">
+            
+            <!-- Root Node -->
+            <div class="w-48 py-3 rounded-2xl bg-altay-darkgreen text-altay-gold font-bold text-center text-lg shadow-lg border-2 border-altay-gold mb-8">
+              <i class="fa-solid fa-user-nib mr-2"></i> ОРАЛХАН БӨКЕЙ
+            </div>
+
+            <!-- Connector Lines (Visual SVG) -->
+            <div class="w-full flex justify-around mb-8">
+              
+              <!-- Work Node 1 -->
+              <div class="flex flex-col items-center group cursor-pointer" onclick="openWorkModal('astau')">
+                <div class="w-40 py-2.5 rounded-xl bg-altay-gold text-altay-darkgreen font-bold text-xs text-center shadow group-hover:scale-105 transition">
+                  «Апамның астауы»
+                </div>
+                <div class="h-6 w-0.5 bg-altay-gold"></div>
+                <div class="w-36 py-1.5 rounded-lg bg-altay-cream border border-altay-border text-[11px] font-medium text-center text-stone-700">
+                  Ұлттық тұрмыс
+                </div>
+                <div class="h-4 w-0.5 bg-stone-300"></div>
+                <div class="space-y-1 text-center">
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Астау')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Астау</span>
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Алаша')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Алаша</span>
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Сырмақ')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Сырмақ</span>
+                </div>
+              </div>
+
+              <!-- Work Node 2 -->
+              <div class="flex flex-col items-center group cursor-pointer" onclick="openWorkModal('kargizy')">
+                <div class="w-40 py-2.5 rounded-xl bg-altay-gold text-altay-darkgreen font-bold text-xs text-center shadow group-hover:scale-105 transition">
+                  «Қар қызы»
+                </div>
+                <div class="h-6 w-0.5 bg-altay-gold"></div>
+                <div class="w-36 py-1.5 rounded-lg bg-altay-cream border border-altay-border text-[11px] font-medium text-center text-stone-700">
+                  Ұлттық мінез
+                </div>
+                <div class="h-4 w-0.5 bg-stone-300"></div>
+                <div class="space-y-1 text-center">
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Ар-ождан')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Ар-ождан</span>
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Сертіне адалдық')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Сертіне адалдық</span>
+                </div>
+              </div>
+
+              <!-- Work Node 3 -->
+              <div class="flex flex-col items-center group cursor-pointer" onclick="openWorkModal('muztau')">
+                <div class="w-40 py-2.5 rounded-xl bg-altay-gold text-altay-darkgreen font-bold text-xs text-center shadow group-hover:scale-105 transition">
+                  «Мұзтау»
+                </div>
+                <div class="h-6 w-0.5 bg-altay-gold"></div>
+                <div class="w-36 py-1.5 rounded-lg bg-altay-cream border border-altay-border text-[11px] font-medium text-center text-stone-700">
+                  Ұлттық дүниетаным
+                </div>
+                <div class="h-4 w-0.5 bg-stone-300"></div>
+                <div class="space-y-1 text-center">
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Мұзтау шыңы')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Мұзтау шыңы</span>
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Киелілік')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Киелілік</span>
+                </div>
+              </div>
+
+              <!-- Work Node 4 -->
+              <div class="flex flex-col items-center group cursor-pointer" onclick="openWorkModal('bura')">
+                <div class="w-40 py-2.5 rounded-xl bg-altay-gold text-altay-darkgreen font-bold text-xs text-center shadow group-hover:scale-105 transition">
+                  «Бура»
+                </div>
+                <div class="h-6 w-0.5 bg-altay-gold"></div>
+                <div class="w-36 py-1.5 rounded-lg bg-altay-cream border border-altay-border text-[11px] font-medium text-center text-stone-700">
+                  Табиғат және туған жер
+                </div>
+                <div class="h-4 w-0.5 bg-stone-300"></div>
+                <div class="space-y-1 text-center">
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Тотемдік бура')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Тотемдік бура</span>
+                  <span onclick="event.stopPropagation(); openEthnocodePassport('Дала еркіндігі')" class="block px-2 py-1 rounded bg-white hover:bg-altay-gold hover:text-white border text-[10px] font-semibold text-altay-dark shadow-sm">Дала еркіндігі</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 11 & 12. RESEARCH RESULTS AND EXPERIMENT SECTION -->
+    <section id="experiment" class="py-20 bg-white border-b border-altay-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-block px-3 py-1 bg-altay-gold/20 text-altay-brown text-xs font-bold uppercase tracking-wider rounded-full mb-2">Ғылыми жоба нәтижесі</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">ЗЕРТТЕУ НӘТИЖЕСІ МЕН ПЕДАГОГИКАЛЫҚ ЭКСПЕРИМЕНТ</h2>
+          <p class="text-stone-600 text-base">Интерактивті платформаның оқушылардың этномәдени сауаттылығын арттырудағы тиімділігін дәлелдейтін сандық көрсеткіштер.</p>
+        </div>
+
+        <!-- 4 Stat Counters -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div class="bg-altay-cream border border-altay-border rounded-2xl p-6 text-center hover:shadow-md transition">
+            <span class="block text-4xl sm:text-5xl font-bold text-altay-darkgreen serif-title mb-1">4</span>
+            <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">Зертелген шығарма</span>
+          </div>
+
+          <div class="bg-altay-cream border border-altay-border rounded-2xl p-6 text-center hover:shadow-md transition">
+            <span class="block text-4xl sm:text-5xl font-bold text-altay-gold serif-title mb-1">138</span>
+            <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">Анықталған этнокод</span>
+          </div>
+
+          <div class="bg-altay-cream border border-altay-border rounded-2xl p-6 text-center hover:shadow-md transition">
+            <span class="block text-4xl sm:text-5xl font-bold text-altay-darkgreen serif-title mb-1">6</span>
+            <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">Негізгі категория</span>
+          </div>
+
+          <div class="bg-altay-cream border border-altay-border rounded-2xl p-6 text-center hover:shadow-md transition">
+            <span class="block text-4xl sm:text-5xl font-bold text-altay-brown serif-title mb-1">24</span>
+            <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">Эксперимент қатысушысы</span>
+          </div>
+        </div>
+
+        <!-- Before / After Experiment Box -->
+        <div class="bg-altay-darkgreen text-white rounded-3xl p-8 sm:p-12 shadow-xl mb-16">
+          <h3 class="text-2xl font-bold text-altay-gold serif-title text-center mb-8">ПЕДАГОГИКАЛЫҚ ЭКСПЕРИМЕНТ КӨРСЕТКІШІ (24 ОҚУШЫ)</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center">
+            
+            <div class="bg-white/10 p-6 rounded-2xl border border-white/10">
+              <span class="block text-xs uppercase text-emerald-200 tracking-wider mb-2">БАСТАПҚЫ ТЕСТ НӘТИЖЕСІ</span>
+              <span class="text-5xl font-bold text-white">47.2%</span>
+              <p class="text-xs text-stone-300 mt-2">Этномәдени кодтарды тану деңгейі</p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-altay-gold text-altay-darkgreen text-2xl font-bold flex items-center justify-center shadow-lg mb-2">
+                +32.8%
+              </div>
+              <span class="text-xs font-bold uppercase text-altay-gold tracking-widest">Өсім пайызы</span>
+            </div>
+
+            <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+              <span class="block text-xs uppercase text-emerald-200 tracking-wider mb-2">ҚОРЫТЫНДЫ ТЕСТ НӘТИЖЕСІ</span>
+              <span class="text-5xl font-bold text-altay-gold">80.0%</span>
+              <p class="text-xs text-stone-300 mt-2">ORALHAN ETHNO LAB қолданғаннан кейін</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Detailed Concept Progress Bars -->
+        <h3 class="text-xl font-bold text-altay-darkgreen serif-title mb-6">Жеке этноұғымдар бойынша білім өсімі (24 оқушы ішінен)</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Concept 1: Астау -->
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-altay-dark">Астау (ұғымын дұрыс анықтағандар)</span>
+              <span class="text-altay-darkgreen font-bold">19/24 → 24/24 (100%)</span>
+            </div>
+            <div class="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+              <div class="h-full bg-stone-400" style="width: 79.1%;"></div>
+              <div class="h-full bg-altay-gold" style="width: 20.9%;"></div>
+            </div>
+          </div>
+
+          <!-- Concept 2: Алаша -->
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-altay-dark">Алаша</span>
+              <span class="text-altay-darkgreen font-bold">16/24 → 23/24 (95.8%)</span>
+            </div>
+            <div class="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+              <div class="h-full bg-stone-400" style="width: 66.6%;"></div>
+              <div class="h-full bg-altay-gold" style="width: 29.2%;"></div>
+            </div>
+          </div>
+
+          <!-- Concept 3: Сырмақ -->
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-altay-dark">Сырмақ</span>
+              <span class="text-altay-darkgreen font-bold">18/24 → 24/24 (100%)</span>
+            </div>
+            <div class="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+              <div class="h-full bg-stone-400" style="width: 75%;"></div>
+              <div class="h-full bg-altay-gold" style="width: 25%;"></div>
+            </div>
+          </div>
+
+          <!-- Concept 4: Саба -->
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-altay-dark">Саба</span>
+              <span class="text-altay-darkgreen font-bold">10/24 → 21/24 (87.5%)</span>
+            </div>
+            <div class="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+              <div class="h-full bg-stone-400" style="width: 41.6%;"></div>
+              <div class="h-full bg-altay-gold" style="width: 45.9%;"></div>
+            </div>
+          </div>
+
+          <!-- Concept 5: Торсық -->
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-altay-dark">Торсық</span>
+              <span class="text-altay-darkgreen font-bold">11/24 → 22/24 (91.6%)</span>
+            </div>
+            <div class="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+              <div class="h-full bg-stone-400" style="width: 45.8%;"></div>
+              <div class="h-full bg-altay-gold" style="width: 45.8%;"></div>
+            </div>
+          </div>
+
+          <!-- Concept 6: Образ-символ -->
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-altay-dark">Образ-символдар талдауы</span>
+              <span class="text-altay-darkgreen font-bold">8/24 → 20/24 (83.3%)</span>
+            </div>
+            <div class="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+              <div class="h-full bg-stone-400" style="width: 33.3%;"></div>
+              <div class="h-full bg-altay-gold" style="width: 50%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 13. MINI-TEST SECTION -->
+    <section id="test" class="py-20 bg-altay-beige/30 border-b border-altay-border">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-block px-3 py-1 bg-altay-gold/20 text-altay-brown text-xs font-bold uppercase tracking-wider rounded-full mb-2">Қорытынды бағалау</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-altay-darkgreen serif-title mb-3">ҚОРЫТЫНДЫ МИНИ-ТЕСТ</h2>
+          <p class="text-stone-600 text-base">Оралхан Бөкей шығармаларындағы этномәдени кодтар бойынша 15 сұрақтан тұратын кешенді тест.</p>
+        </div>
+
+        <div class="bg-white border border-altay-border rounded-3xl p-6 sm:p-10 shadow-lg">
+          
+          <!-- Test Container JS Controlled -->
+          <div id="testActiveArea">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-altay-border">
+              <span class="text-xs font-bold uppercase tracking-wider text-altay-brown" id="testQuestionNum">Сұрақ 1 / 15</span>
+              <span class="text-xs bg-altay-gold/15 text-altay-brown font-semibold px-3 py-1 rounded-full" id="testCategoryTag">Категория</span>
+            </div>
+
+            <h3 id="testQuestionTitle" class="text-xl sm:text-2xl font-bold text-altay-darkgreen serif-title mb-6">
+              Сұрақ жүктелуде...
+            </h3>
+
+            <div id="testAnswersGrid" class="space-y-3 mb-8">
+              <!-- Options rendered dynamically -->
+            </div>
+
+            <div class="flex justify-between items-center pt-4 border-t border-altay-border">
+              <button id="testPrevBtn" onclick="prevTestQuestion()" class="px-5 py-2.5 rounded-xl border border-altay-border text-stone-600 text-sm font-semibold hover:bg-altay-beige disabled:opacity-30 disabled:cursor-not-allowed">
+                <i class="fa-solid fa-chevron-left mr-2"></i> Алдыңғы
+              </button>
+              <button id="testNextBtn" onclick="nextTestQuestion()" class="px-6 py-2.5 rounded-xl bg-altay-darkgreen text-white text-sm font-semibold hover:bg-altay-gold hover:text-altay-darkgreen transition">
+                Келесі <i class="fa-solid fa-chevron-right ml-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Test Results Screen (Hidden initially) -->
+          <div id="testResultArea" class="hidden text-center py-8">
+            <div class="w-24 h-24 rounded-full bg-altay-darkgreen text-altay-gold text-5xl flex items-center justify-center mx-auto mb-6 shadow-xl">
+              <i class="fa-solid fa-award"></i>
+            </div>
+
+            <h3 class="text-3xl font-bold text-altay-darkgreen serif-title mb-2">ТЕСТ НӘТИЖЕСІ</h3>
+            
+            <div class="text-5xl font-extrabold text-altay-gold my-4" id="testFinalScoreText">
+              12 / 15
+            </div>
+            
+            <p id="testPercentageText" class="text-xl font-bold text-stone-700 mb-6">(80%)</p>
+
+            <div id="testFeedbackBox" class="p-6 rounded-2xl bg-altay-cream border border-altay-border text-lg font-bold text-altay-darkgreen max-w-lg mx-auto mb-8">
+              «Оралхан әлемін жақсы таныдың!»
+            </div>
+
+            <button onclick="restartTest()" class="px-8 py-4 bg-altay-darkgreen text-white font-semibold rounded-xl hover:bg-altay-gold hover:text-altay-darkgreen transition shadow-md">
+              <i class="fa-solid fa-rotate-right mr-2"></i> ҚАЙТА ТАПСЫРУ
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ETHNOCODE PASSPORT MODAL (Pops up on QR scan or card click) -->
+  <div id="passportModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-altay-gold shadow-2xl relative animate-fade-in">
+      
+      <!-- Close Button -->
+      <button onclick="closePassportModal()" class="absolute right-5 top-5 w-10 h-10 rounded-full bg-altay-cream hover:bg-altay-gold text-altay-darkgreen hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="p-6 sm:p-8">
+        
+        <!-- Passport Header -->
+        <div class="flex items-center gap-3 border-b-2 border-altay-gold/30 pb-4 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-altay-darkgreen text-altay-gold flex items-center justify-center text-2xl font-bold">
+            <i class="fa-solid fa-passport"></i>
+          </div>
+          <div>
+            <span class="block text-xs font-bold uppercase tracking-widest text-altay-brown">ORALHAN ETHNO LAB — ЦИФРЛЫҚ ПАСПОРТ</span>
+            <h2 id="modalCodeTitle" class="text-2xl sm:text-3xl font-bold text-altay-darkgreen serif-title">ЭТНОКОД АТАУЫ</h2>
+          </div>
+        </div>
+
+        <!-- Passport Body Grid -->
+        <div class="space-y-4 text-sm">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-3 bg-altay-cream rounded-xl border border-altay-border">
+              <span class="block text-xs font-bold text-stone-500 uppercase">Шығарма:</span>
+              <span id="modalCodeWork" class="font-bold text-altay-darkgreen text-base">«Апамның астауы»</span>
+            </div>
+            <div class="p-3 bg-altay-cream rounded-xl border border-altay-border">
+              <span class="block text-xs font-bold text-stone-500 uppercase">Категория:</span>
+              <span id="modalCodeCategory" class="font-bold text-altay-brown text-base">Ұлттық тұрмыс</span>
+            </div>
+          </div>
+
+          <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
+            <span class="block text-xs font-bold text-amber-900 uppercase tracking-wider mb-1"><i class="fa-solid fa-book-bookmark mr-1"></i> Негізгі мағынасы:</span>
+            <p id="modalCodeMeaning" class="text-stone-800 text-sm leading-relaxed">Дәстүрлі тұрмыстық ыдыс...</p>
+          </div>
+
+          <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+            <span class="block text-xs font-bold text-emerald-900 uppercase tracking-wider mb-1"><i class="fa-solid fa-feather mr-1"></i> Шығармадағы қызметі:</span>
+            <p id="modalCodeRole" class="text-stone-800 text-sm leading-relaxed">Апа еңбегі мен отбасы жадын байланыстырады.</p>
+          </div>
+
+          <div class="p-4 bg-sky-50 rounded-xl border border-sky-200">
+            <span class="block text-xs font-bold text-sky-900 uppercase tracking-wider mb-1"><i class="fa-solid fa-gem mr-1"></i> Мәдени құндылығы:</span>
+            <p id="modalCodeCultural" class="text-stone-800 text-sm font-semibold">ұрпақ сабақтастығы • еңбек сүйгіштік</p>
+          </div>
+
+          <div class="p-4 bg-altay-cream rounded-xl border border-altay-border">
+            <span class="block text-xs font-bold text-stone-500 uppercase mb-2">Байланысты этнокодтар:</span>
+            <div id="modalRelatedCodes" class="flex flex-wrap gap-2">
+              <!-- Related badges injected -->
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-altay-border flex justify-end">
+          <button onclick="closePassportModal()" class="px-6 py-2.5 bg-altay-darkgreen text-white font-semibold rounded-xl hover:bg-altay-gold hover:text-altay-darkgreen transition">
+            Жабу
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WORKS DETAIL MODAL -->
+  <div id="workDetailModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-altay-border shadow-2xl relative">
+      <button onclick="closeWorkModal()" class="absolute right-5 top-5 w-10 h-10 rounded-full bg-altay-cream hover:bg-altay-gold text-altay-darkgreen hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="p-6 sm:p-8">
+        <span class="px-3 py-1 bg-altay-gold/20 text-altay-brown text-xs font-bold rounded-full uppercase">Шығарма паспорты</span>
+        <h2 id="workModalTitle" class="text-3xl font-bold text-altay-darkgreen serif-title my-2">Шығарма атауы</h2>
+        <p id="workModalDesc" class="text-stone-600 text-sm mb-6"></p>
+
+        <h3 class="text-lg font-bold text-altay-darkgreen serif-title mb-3">Осы шығармадан анықталған этнокодтар тізімі:</h3>
+        <div id="workModalCodeList" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+          <!-- Codes injected via JS -->
+        </div>
+
+        <div class="text-right">
+          <button onclick="closeWorkModal()" class="px-6 py-2.5 bg-altay-darkgreen text-white font-semibold rounded-xl">Жабу</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18. FOOTER -->
+  <footer class="bg-altay-darkgreen text-white border-t border-altay-gold/30 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="w-12 h-12 rounded-xl bg-altay-gold text-altay-darkgreen flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+        <i class="fa-solid fa-mountain-sun"></i>
+      </div>
+
+      <h2 class="text-2xl font-bold serif-title text-altay-gold mb-1">ORALHAN ETHNO LAB</h2>
+      <p class="text-emerald-100 text-sm max-w-md mx-auto mb-4">Оралхан Бөкей шығармаларындағы ұлттық болмысты зерттеу платформасы</p>
+
+      <p class="text-xl font-serif italic text-altay-gold/90 mb-8">«Шығармадан – ұлттық жадыға»</p>
+
+      <div class="border-t border-white/10 pt-6 text-xs text-emerald-200/70">
+        © 2026 ORALHAN ETHNO LAB. Барлық құқықтар қорғалған. Ғылыми-интерактивті оқу жобасы.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* ==========================================================================
+       DATA STRUCTURES (ETHNOCODES, WORKS, GAME, TESTS)
+       ========================================================================== */
+    
+    const ETHNOCODES_DATABASE = [
+      {
+        id: "astau",
+        name: "Астау",
+        category: "Ұлттық тұрмыс пен бұйымдар",
+        work: "Апамның астауы",
+        meaning: "Ағаштан ойылып жасалатын дәстүрлі тұрмыстық ет тартатын ыдыс.",
+        role: "Апа еңбегі мен отбасының өткен өмірін, молшылығын еске түсіретін маңызды көркем деталь.",
+        cultural: "Тұрмыс • еңбек • отбасы жады • ұрпақ сабақтастығы",
+        related: ["Алаша", "Сырмақ", "Саба", "Торсық"]
+      },
+      {
+        id: "alasha",
+        name: "Алаша",
+        category: "Ұлттық тұрмыс пен бұйымдар",
+        work: "Апамның астауы",
+        meaning: "Түрлі-түсті өрмек жіптерінен тоқылатын ұлттық төсеніш бұйым.",
+        role: "Үй ішінің жылылығы мен шебер ананың төгілген тер-еңбегін бейнелейді.",
+        cultural: "Шеберлік • эстетика • қолөнер дәстүрі",
+        related: ["Астау", "Сырмақ"]
+      },
+      {
+        id: "syrmak",
+        name: "Сырмақ",
+        category: "Ұлттық тұрмыс пен бұйымдар",
+        work: "Апамның астауы",
+        meaning: "Оюлы киізден сырып тігілетін дәстүрлі төсеніш.",
+        role: "Шаңырақтың берекесі мен киіз үй ішкі әлемінің сәнін көрсетеді.",
+        cultural: "Ою-өрнек • ұлттық эстетика • киіз өнері",
+        related: ["Алаша", "Астау"]
+      },
+      {
+        id: "saba",
+        name: "Саба",
+        category: "Ұлттық тұрмыс пен бұйымдар",
+        work: "Апамның астауы",
+        meaning: "Қымыз ашытуға арналған жылқы терісінен жасалатын үлкен ыдыс.",
+        role: "Қазақи қонақжайлылық пен кең дастарқанның, молшылықтың белгісі.",
+        cultural: "Дәстүрлі тағам • қонақжайлық • молшылық",
+        related: ["Торсық", "Астау"]
+      },
+      {
+        id: "torsyk",
+        name: "Торсық",
+        category: "Ұлттық тұрмыс пен бұйымдар",
+        work: "Апамның астауы",
+        meaning: "Теріден тігілетін, жолға алып жүруге ыңғайлы сусын ыдысы.",
+        role: "Көшпелі өмір салты мен жолаушылық мәдениетінің символы.",
+        cultural: "Көшпелі тұрмыс • жол мәдениеті",
+        related: ["Саба", "Астау"]
+      },
+      {
+        id: "ar-ozhdan",
+        name: "Ар-ождан",
+        category: "Ұлттық мінез",
+        work: "Қар қызы",
+        meaning: "Адамның ішкі моральдық тазалығы мен адамгершілік өлшемі.",
+        role: "Қатал боранда кейіпкерлердің адалдығы мен достық сертін сынайтын рухани таразы.",
+        cultural: "Ар тазалығы • намыс • адамгершілік",
+        related: ["Сертіне адалдық", "Бауырластық"]
+      },
+      {
+        id: "muztau-peak",
+        name: "Мұзтау шыңы",
+        category: "Табиғат және туған жер",
+        work: "Мұзтау",
+        meaning: "Алтайдың ең биік, асқар шыңы, табиғаттың ұлылық белгісі.",
+        role: "Адам жеткісі келетін биік арман мен табиғаттың құдіреттілігінің метафорасы.",
+        cultural: "Асқақтық • туған жер сакральдылығы • табиғат культі",
+        related: ["Киелілік", "Тәңірлік дүниетаным"]
+      },
+      {
+        id: "totem-bura",
+        name: "Тотемдік бура",
+        category: "Ұлттық дүниетаным",
+        work: "Бура",
+        meaning: "Қазақ мифологиясындағы күш пен еркіндіктің жануарлық символы.",
+        role: "Адам мен табиғат арасындағы ажырамас рухани терең байланысты айшықтайды.",
+        cultural: "Мифология • анимализм • дала еркіндігі",
+        related: ["Дала еркіндігі", "Мұзтау шыңы"]
+      },
+      {
+        id: "sert",
+        name: "Сертіне адалдық",
+        category: "Ұлттық мінез",
+        work: "Қар қызы",
+        meaning: "Берген сөзінде тұру, достыққа қиянат жасамау ұлттық заңы.",
+        role: "Алтай асуында қалған жолдастарына көмекке ұмтылған кейіпкерлер әрекетінің қозғаушы күші.",
+        cultural: "Уәдеге беріктік • серт • ерлік",
+        related: ["Ар-ождан"]
+      },
+      {
+        id: "kyelilik",
+        name: "Киелілік",
+        category: "Ұлттық дүниетаным",
+        work: "Мұзтау",
+        meaning: "Табиғат пен жан-жануарға, туған жерге деген қасиетті құрмет.",
+        role: "Табиғатты қорғау, оның киесінен қорқу ұғымын кейіпкерлер санасына ұялатады.",
+        cultural: "Кие • киелі география • тәңірлік сәйкестік",
+        related: ["Мұзтау шыңы"]
+      }
+    ];
+
+    /* 10 GAME QUESTIONS */
+    const GAME_QUESTIONS = [
+      {
+        text: "«Апамның астауы» повестіндегі ағаштан ойылған, ананың еңбегі мен отбасы берекесінің белгісі болған ыдыс қай категорияға жатады?",
+        correctCategory: "Ұлттық тұрмыс пен бұйымдар",
+        explanation: "Астау — ұлттық тұрмыста қолданылатын дәстүрлі ағаш ыдыс болып табылады."
+      },
+      {
+        text: "«Қар қызы» повестіндегі қатал боран мен қар құрсауында кейіпкерлердің достық пен сертке беріктігі қай этнокодты білдіреді?",
+        correctCategory: "Ұлттық мінез",
+        explanation: "Сертіне адалдық пен қайсарлық — қазақтың ұлттық мінез-құлқының ажырамас бөлігі."
+      },
+      {
+        text: "«Мұзтау» шығармасындағы асқар тау мен табиғат иелеріне деген құрмет пен киелілік қай категорияға кіреді?",
+        correctCategory: "Ұлттық дүниетаным",
+        explanation: "Табиғатты кие тұту, асқар тауды қасиеттеу — қазақтың дәстүрлі дүниетанымынан туындайды."
+      },
+      {
+        text: "Көшпелі қазақтың қымыз ашытуға арналған тері ыдысы — САБА қай категорияның этнокоды?",
+        correctCategory: "Ұлттық тұрмыс пен бұйымдар",
+        explanation: "Саба — дәстүрлі тұрмыстағы ең маңызды тері бұйымдарының бірі."
+      },
+      {
+        text: "Алтайдың сұлу да қатал табиғаты, суық өзендері мен мұзды шыңдары қай бағытқа жатады?",
+        correctCategory: "Табиғат және туған жер",
+        explanation: "Алтай ландшафты — «Табиғат және туған жер» этнокодының басты өзегі."
+      },
+      {
+        text: "Үлкенге құрмет көрсетіп, ананың өсиетін орындау, әже жадын сақтау қай категорияға кіреді?",
+        correctCategory: "Отбасы және ұрпақ сабақтастығы",
+        explanation: "Ұрпақтар сабақтастығы мен үлкенді сыйлау отбасылық құндылықтарға жатады."
+      },
+      {
+        text: "«Бура» әңгімесіндегі дала бурасының өрлігі мен қайсарлығы қай категорияға жатады?",
+        correctCategory: "Ұлттық дүниетаным",
+        explanation: "Жануар бейнесі арқылы эркін рухты меңзеу — дүниетанымдық тотемизм сарыны."
+      },
+      {
+        text: "Сырмақ пен Алаша тоқудағы ою-өрнектер мен түстер үйлесімі қай этнокодқа жатады?",
+        correctCategory: "Ұлттық тұрмыс пен бұйымдар",
+        explanation: "Сырмақ пен алаша — қолөнер бұйымдары ретінде тұрмыстық этнокодтар."
+      },
+      {
+        text: "Жолдасына қиянат жасамау, қиын сәтте ар-ожданын таза ұстау қай этнокод?",
+        correctCategory: "Ұлттық мінез",
+        explanation: "Ар-ождан тазалығы мен намыс — ұлттық мінездің жоғары көрінісі."
+      },
+      {
+        text: "Қонақ келгенде сабадан қымыз құйып, астаумен ет тарту қай дәстүрлі үрдіс?",
+        correctCategory: "Салт-дәстүр",
+        explanation: "Қонақжайлылық пен табақ тарту — қазақтың басты салт-дәстүрі."
+      }
+    ];
+
+    /* 15 MINI-TEST QUESTIONS */
+    const MINI_TEST_QUESTIONS = [
+      {
+        q: "1. «Апамның астауы» повестіндегі астау бұйымы қандай басты мәдени мағынаны білдіреді?",
+        options: [
+          "А) Тек қана сәндік жиһаз",
+          "Б) Ана еңбегі, отбасы берекесі мен ұрпақ сабақтастығы",
+          "В) Көшпелі әскердің құралы",
+          "Г) Базарда сатылатын тауар"
+        ],
+        correct: 1,
+        cat: "Ұғымды тану"
+      },
+      {
+        q: "2. Оралхан Бөкей шығармаларында саба мен торсық қай этнокодтар тобына жатады?",
+        options: [
+          "А) Ұлттық тұрмыс пен бұйымдар",
+          "Б) Табиғат және туған жер",
+          "В) Ұлттық мінез",
+          "Г) Салт-дәстүр"
+        ],
+        correct: 0,
+        cat: "Категорияны анықтау"
+      },
+      {
+        q: "3. «Қар қызы» шығармасында Алтайдың қатал бораны не іспеттес?",
+        options: [
+          "А) Жай ғана ауа райы құбылысы",
+          "Б) Кейіпкерлердің мінезі мен адамгершілігін сынайтын сынақ",
+          "В) Көктемнің келу белгісі",
+          "Г) Оқиғаға әсер етпейтін деталь"
+        ],
+        correct: 1,
+        cat: "Мәдени мағына"
+      },
+      {
+        q: "4. «Мұзтау» повестіндегі Мұзтау шыңы қай категорияға жатады?",
+        options: [
+          "А) Ұлттық тұрмыс",
+          "Б) Табиғат және туған жер",
+          "В) Отбасы құндылығы",
+          "Г) Салт-дәстүр"
+        ],
+        correct: 1,
+        cat: "Категорияны анықтау"
+      },
+      {
+        q: "5. Бөкей прозасындағы «бура» бейнесінің философиялық астары қандай?",
+        options: [
+          "А) Үй жануары",
+          "Б) Дала еркіндігі, қайсарлық пен асау рух символы",
+          "В) Егін шаруашылығы құралы",
+          "Г) Сәндік образ"
+        ],
+        correct: 1,
+        cat: "Мәдени мағына"
+      },
+      {
+        q: "6. «Апамның астауында» анықталған этномәдени кодтардың жалпы саны қанша?",
+        options: [
+          "А) 32",
+          "Б) 35",
+          "В) 40",
+          "Г) 31"
+        ],
+        correct: 2,
+        cat: "Зерттеу дерегі"
+      },
+      {
+        q: "7. ORALHAN ETHNO LAB зертханасында барлығы қанша этнокод анықталды?",
+        options: [
+          "А) 100",
+          "Б) 120",
+          "В) 138",
+          "Г) 150"
+        ],
+        correct: 2,
+        cat: "Зерттеу дерегі"
+      },
+      {
+        q: "8. «Сырмақ» пен «Алаша» бұйымдарының қазіргі (бүгінгі) қызметі қандай?",
+        options: [
+          "А) Мүлдем қолданыстан шыққан",
+          "Б) Ұлттық сәндік-қолданбалы өнер әрі этно-дизайн үлгісі",
+          "В) Тек мұражайда тұратын экспонат",
+          "Г) Өндірістік пластмасса өнім"
+        ],
+        correct: 1,
+        cat: "Бұрын мен бүгін"
+      },
+      {
+        q: "9. Қазақ дүниетанымындағы «кие» ұғымы нені білдіреді?",
+        options: [
+          "А) Табиғат пен жан-жануарға деген қасиетті құрмет",
+          "Б) Материалдық байлық",
+          "В) Суық ауа райы",
+          "Г) Баспана түрі"
+        ],
+        correct: 0,
+        cat: "Мәдени мағына"
+      },
+      {
+        q: "10. «Сертіне адалдық» қандай этнокодқа жатады?",
+        options: [
+          "А) Ұлттық мінез",
+          "Б) Тұрмыстық бұйым",
+          "В) Табиғат",
+          "Г) Ұрпақ сабақтастығы"
+        ],
+        correct: 0,
+        cat: "Категорияны анықтау"
+      },
+      {
+        q: "11. Педагогикалық экспериментке қанша оқушы қатысты?",
+        options: [
+          "А) 10",
+          "Б) 15",
+          "В) 24",
+          "Г) 30"
+        ],
+        correct: 2,
+        cat: "Зерттеу дерегі"
+      },
+      {
+        q: "12. Эксперимент нәтижесінде оқушылардың білім көрсеткіші қай деңгейге көтерілді?",
+        options: [
+          "А) 47.2%",
+          "Б) 65.0%",
+          "В) 80.0%",
+          "Г) 95.0%"
+        ],
+        correct: 2,
+        cat: "Зерттеу дерегі"
+      },
+      {
+        q: "13. Теріден тігіліп, сусын құятын ықшам жол ыдысы қалай аталады?",
+        options: [
+          "А) Астау",
+          "Б) Торсық",
+          "В) Алаша",
+          "Г) Сырмақ"
+        ],
+        correct: 1,
+        cat: "Ұғымды тану"
+      },
+      {
+        q: "14. Оралхан Бөкей шығармаларының географиялық негізгі мекені қай өңір?",
+        options: [
+          "А) Атырау",
+          "Б) Алтай, Шығыс Қазақстан",
+          "В) Арқа даласы",
+          "Г) Алатау"
+        ],
+        correct: 1,
+        cat: "Мәдени география"
+      },
+      {
+        q: "15. Отбасы берекесі мен үлкендер аманаты қай шығармада басым суреттеледі?",
+        options: [
+          "А) «Апамның астауы»",
+          "Б) «Бура»",
+          "В) «Қар қызы»",
+          "Г) «Мұзтау»"
+        ],
+        correct: 0,
+        cat: "Шығарманы тану"
+      }
+    ];
+
+    /* ==========================================================================
+       APP STATE MANAGEMENT & CONTROLLERS
+       ========================================================================== */
+
+    let currentGameIndex = 0;
+    let gameScore = 0;
+    let gameAttempts = 0;
+
+    let currentTestIndex = 0;
+    let userTestAnswers = new Array(MINI_TEST_QUESTIONS.length).fill(null);
+
+    window.onload = function() {
+      initMobileMenu();
+      renderDictionary();
+      initGame();
+      initTest();
+      checkHashRoute();
+
+      window.addEventListener('hashchange', checkHashRoute);
+    };
+
+    /* Mobile Menu Toggle */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobileMenuBtn');
+      const menu = document.getElementById('mobileMenu');
+      if (btn && menu) {
+        btn.onclick = () => {
+          menu.classList.toggle('hidden');
+        };
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.onclick = () => menu.classList.add('hidden');
+        });
+      }
+    }
+
+    /* Hash Routing for QR Codes e.g. #ethno/astau */
+    function checkHashRoute() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#ethno/')) {
+        const codeId = hash.replace('#ethno/', '');
+        openEthnocodePassportById(codeId);
+      }
+    }
+
+    /* ==========================================================================
+       DICTIONARY RENDERER & FILTER
+       ========================================================================== */
+
+    function renderDictionary() {
+      const grid = document.getElementById('dictionaryGrid');
+      if (!grid) return;
+
+      const search = (document.getElementById('dictSearchInput').value || '').toLowerCase();
+      const catFilter = document.getElementById('dictCategoryFilter').value;
+      const workFilter = document.getElementById('dictWorkFilter').value;
+
+      const filtered = ETHNOCODES_DATABASE.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(search) || 
+                              item.meaning.toLowerCase().includes(search) ||
+                              item.cultural.toLowerCase().includes(search);
+        const matchesCat = (catFilter === 'барлығы') || (item.category === catFilter);
+        const matchesWork = (workFilter === 'барлығы') || (item.work === workFilter);
+
+        return matchesSearch && matchesCat && matchesWork;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12 text-stone-500">
+            <i class="fa-solid fa-circle-exclamation text-3xl mb-2 text-altay-gold"></i>
+            <p class="text-base font-semibold">Ешқандай этнокод табылмады.</p>
+            <p class="text-xs">Іздеу сөзін немесе фильтрді өзгертіп көріңіз.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-white rounded-2xl p-6 border border-altay-border hover:border-altay-gold shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-altay-gold/15 text-altay-brown text-xs font-bold uppercase">${item.category}</span>
+              <span class="text-xs font-semibold text-stone-500">«${item.work}»</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-altay-darkgreen serif-title mb-2 group-hover:text-altay-gold transition">${item.name}</h3>
+            
+            <p class="text-stone-700 text-xs sm:text-sm mb-4 leading-relaxed">
+              <strong class="text-altay-brown">Мағынасы:</strong> ${item.meaning}
+            </p>
+
+            <div class="p-3 bg-altay-cream rounded-xl mb-4 text-xs text-stone-600">
+              <strong class="block text-altay-darkgreen mb-0.5">Шығармадағы қызметі:</strong>
+              ${item.role}
+            </div>
+
+            <div class="text-xs text-altay-gold font-bold mb-4">
+              <i class="fa-solid fa-tag mr-1"></i> ${item.cultural}
+            </div>
+          </div>
+
+          <button onclick="openEthnocodePassport('${item.name}')" class="w-full py-2.5 bg-altay-beige hover:bg-altay-darkgreen text-altay-darkgreen hover:text-white font-semibold text-xs rounded-xl transition duration-300 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-id-card"></i>
+            <span>ЭТНОКОД ПАСПОРТЫН АШУ</span>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function filterCategoryAndScroll(catName) {
+      const select = document.getElementById('dictCategoryFilter');
+      if (select) {
+        select.value = catName;
+        renderDictionary();
+        document.getElementById('dictionary').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /* ==========================================================================
+       MODAL PASSPORT SYSTEM
+       ========================================================================== */
+
+    function openEthnocodePassport(codeName) {
+      const item = ETHNOCODES_DATABASE.find(x => x.name.toLowerCase() === codeName.toLowerCase()) || {
+        name: codeName,
+        category: "Ұлттық мәдениет",
+        work: "Оралхан Бөкей прозасы",
+        meaning: "Оралхан Бөкей шығармаларындағы терең ұлттық болмыстың көрінісі.",
+        role: "Көркем шығармадағы қазақы мінез бен дәстүрлі тұрмысты әйгілейтін көркем деталь.",
+        cultural: "ұлттық код • этномәдени мұра",
+        related: ["Астау", "Алаша", "Сырмақ"]
+      };
+
+      document.getElementById('modalCodeTitle').innerText = item.name;
+      document.getElementById('modalCodeWork').innerText = `«${item.work}»`;
+      document.getElementById('modalCodeCategory').innerText = item.category;
+      document.getElementById('modalCodeMeaning').innerText = item.meaning;
+      document.getElementById('modalCodeRole').innerText = item.role;
+      document.getElementById('modalCodeCultural').innerText = item.cultural;
+
+      const relatedBox = document.getElementById('modalRelatedCodes');
+      relatedBox.innerHTML = (item.related || []).map(r => `
+        <button onclick="openEthnocodePassport('${r}')" class="px-2.5 py-1 rounded-lg bg-altay-beige hover:bg-altay-gold hover:text-white text-xs font-semibold text-altay-darkgreen transition">
+          ${r}
+        </button>
+      `).join('');
+
+      document.getElementById('passportModal').classList.remove('hidden');
+    }
+
+    function openEthnocodePassportById(id) {
+      const item = ETHNOCODES_DATABASE.find(x => x.id === id);
+      if (item) {
+        openEthnocodePassport(item.name);
+      } else {
+        openEthnocodePassport("Астау");
+      }
+    }
+
+    function closePassportModal() {
+      document.getElementById('passportModal').classList.add('hidden');
+    }
+
+    /* Work Detail Modal */
+    function openWorkModal(workKey) {
+      const modal = document.getElementById('workDetailModal');
+      const title = document.getElementById('workModalTitle');
+      const desc = document.getElementById('workModalDesc');
+      const list = document.getElementById('workModalCodeList');
+
+      const data = {
+        astau: {
+          title: "«Апамның астауы»",
+          desc: "40 Этномәдени код анықталды. Шығармада ана бейнесі, отбасы берекесі мен дәстүрлі тұрмыс құндылығы суреттеледі.",
+          codes: ["Астау", "Алаша", "Сырмақ", "Саба", "Торсық", "Ана аманаты", "Шаңырақ берекесі", "Табақ тарту"]
+        },
+        kargizy: {
+          title: "«Қар қызы»",
+          desc: "32 Этномәдени код анықталды. Адам мен табиғат арпалысы, сертке адалдық пен ар-ождан тазалығы.",
+          codes: ["Ар-ождан", "Сертіне адалдық", "Қатал боран", "Достық уәдесі", "Қайсарлық", "Ерлік"]
+        },
+        muztau: {
+          title: "«Мұзтау»",
+          desc: "35 Этномәдени код анықталды. Асқар Алтай мен Мұзтау шыңы, тәңірлік дүниетаным мен табиғат киесі.",
+          codes: ["Мұзтау шыңы", "Киелілік", "Табиғат иесі", "Бүркіт пен аңшылық", "Тәңірлік сәйкестік"]
+        },
+        bura: {
+          title: "«Бура»",
+          desc: "31 Этномәдени код анықталды. Дала еркіндігі, тотемдік түйе бейнесі мен ұлттық мінез-құлық.",
+          codes: ["Тотемдік бура", "Дала еркіндігі", "Асау рух", "Дала философиясы", "Табиғатпен үндестік"]
+        }
+      }[workKey];
+
+      if (data) {
+        title.innerText = data.title;
+        desc.innerText = data.desc;
+        list.innerHTML = data.codes.map(c => `
+          <div onclick="closeWorkModal(); openEthnocodePassport('${c}')" class="p-3 rounded-xl bg-altay-cream hover:bg-altay-gold hover:text-white border border-altay-border cursor-pointer transition flex items-center justify-between">
+            <span class="font-bold text-sm">${c}</span>
+            <i class="fa-solid fa-chevron-right text-xs opacity-60"></i>
+          </div>
+        `).join('');
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function closeWorkModal() {
+      document.getElementById('workDetailModal').classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       6. GAME CONTROLLER ("ЭТНОКОДТЫ ТАП")
+       ========================================================================== */
+
+    function initGame() {
+      currentGameIndex = 0;
+      gameScore = 0;
+      gameAttempts = 0;
+      document.getElementById('gameResultBox').classList.add('hidden');
+      document.getElementById('gameQuestionBox').classList.remove('hidden');
+      document.getElementById('gameOptionsGrid').classList.remove('hidden');
+      renderGameQuestion();
+    }
+
+    function renderGameQuestion() {
+      const q = GAME_QUESTIONS[currentGameIndex];
+      gameAttempts = 0;
+
+      document.getElementById('gameStepNum').innerText = currentGameIndex + 1;
+      document.getElementById('gameProgressText').innerText = `${currentGameIndex + 1} / 10`;
+      document.getElementById('gameScoreTracker').innerText = `Дұрыс: ${gameScore}`;
+      
+      document.getElementById('gameNextBtn').classList.add('hidden');
+      const feedback = document.getElementById('gameFeedback');
+      feedback.classList.add('hidden');
+
+      document.getElementById('gameQuestionBox').innerHTML = `
+        <h3 class="text-xl sm:text-2xl font-bold text-altay-darkgreen serif-title mb-2 leading-snug">
+          ${q.text}
+        </h3>
+      `;
+
+      const categories = [
+        "Ұлттық тұрмыс пен бұйымдар",
+        "Салт-дәстүр",
+        "Отбасы және ұрпақ сабақтастығы",
+        "Табиғат және туған жер",
+        "Ұлттық мінез",
+        "Ұлттық дүниетаным"
+      ];
+
+      document.getElementById('gameOptionsGrid').innerHTML = categories.map(cat => `
+        <button onclick="handleGameAnswer('${cat}')" class="game-opt-btn text-left p-4 rounded-2xl border border-altay-border bg-white hover:bg-altay-gold/20 hover:border-altay-gold font-semibold text-sm text-altay-dark transition duration-200">
+          <i class="fa-solid fa-circle-dot mr-2 text-altay-gold"></i> ${cat}
+        </button>
+      `).join('');
+    }
+
+    function handleGameAnswer(selectedCat) {
+      const q = GAME_QUESTIONS[currentGameIndex];
+      const feedback = document.getElementById('gameFeedback');
+      feedback.classList.remove('hidden');
+
+      if (selectedCat === q.correctCategory) {
+        if (gameAttempts === 0) gameScore++;
+        feedback.className = "p-4 rounded-xl text-sm font-medium mb-4 bg-emerald-100 text-emerald-900 border border-emerald-300";
+        feedback.innerHTML = `<strong><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Дұрыс!</strong> ${q.explanation}`;
+        
+        document.getElementById('gameNextBtn').classList.remove('hidden');
+        disableGameOptions();
+      } else {
+        gameAttempts++;
+        if (gameAttempts === 1) {
+          feedback.className = "p-4 rounded-xl text-sm font-medium mb-4 bg-amber-100 text-amber-900 border border-amber-300";
+          feedback.innerHTML = `<strong><i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> Тағы ойланып көр!</strong> Бұл басқа категорияға сәйкес келеді. Екінші мүмкіндікті пайдалан.`;
+        } else {
+          feedback.className = "p-4 rounded-xl text-sm font-medium mb-4 bg-rose-100 text-rose-900 border border-rose-300";
+          feedback.innerHTML = `<strong>Дұрыс жауап:</strong> ${q.correctCategory}. <br><em>${q.explanation}</em>`;
+          document.getElementById('gameNextBtn').classList.remove('hidden');
+          disableGameOptions();
+        }
+      }
+      document.getElementById('gameScoreTracker').innerText = `Дұрыс: ${gameScore}`;
+    }
+
+    function disableGameOptions() {
+      document.querySelectorAll('.game-opt-btn').forEach(b => b.disabled = true);
+    }
+
+    function nextGameQuestion() {
+      currentGameIndex++;
+      if (currentGameIndex < GAME_QUESTIONS.length) {
+        renderGameQuestion();
+      } else {
+        document.getElementById('gameQuestionBox').classList.add('hidden');
+        document.getElementById('gameOptionsGrid').classList.add('hidden');
+        document.getElementById('gameFeedback').classList.add('hidden');
+        document.getElementById('gameNextBtn').classList.add('hidden');
+
+        document.getElementById('gameFinalMessage').innerText = `Сен 10 этнокодтың ${gameScore}-ін дұрыс анықтадың!`;
+        document.getElementById('gameResultBox').classList.remove('hidden');
+      }
+    }
+
+    function restartGame() {
+      initGame();
+    }
+
+    /* ==========================================================================
+       8. PASSAGE FINDER CHECKER
+       ========================================================================== */
+
+    function checkPassageAnswer(idx) {
+      const fb = document.getElementById('passageFeedback');
+      fb.classList.remove('hidden');
+
+      if (idx === 0) {
+        fb.className = "p-5 rounded-2xl bg-emerald-100 text-emerald-900 border border-emerald-300 text-sm leading-relaxed";
+        fb.innerHTML = `
+          <strong class="text-base block mb-1"><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Дұрыс жауап!</strong>
+          <p><strong>Мәдени түсіндірме:</strong> Көрсетілген үзіндіде ана еңбегі, сырмақ пен алаша сияқты дәстүрлі қолөнер арқылы отбасының тұрмыстық мәдениеті бейнеленген.</p>
+          <p class="mt-2 text-xs text-stone-600"><strong>Шығарма:</strong> «Апамның астауы» | <strong>Категория:</strong> Ұлттық тұрмыс пен бұйымдар</p>
+        `;
+      } else {
+        fb.className = "p-5 rounded-2xl bg-amber-100 text-amber-900 border border-amber-300 text-sm leading-relaxed";
+        fb.innerHTML = `
+          <strong>Тағы ойланып көр!</strong> 
+          Алаша мен сырмақ бұйымдары әскери немесе өндірістік емес, ұлттық қолөнер мен ана еңбегін білдіреді.
+        `;
+      }
+    }
+
+    /* ==========================================================================
+       13. MINI-TEST CONTROLLER (15 QUESTIONS)
+       ========================================================================== */
+
+    function initTest() {
+      currentTestIndex = 0;
+      userTestAnswers = new Array(MINI_TEST_QUESTIONS.length).fill(null);
+      document.getElementById('testResultArea').classList.add('hidden');
+      document.getElementById('testActiveArea').classList.remove('hidden');
+      renderTestQuestion();
+    }
+
+    function renderTestQuestion() {
+      const q = MINI_TEST_QUESTIONS[currentTestIndex];
+      
+      document.getElementById('testQuestionNum').innerText = `Сұрақ ${currentTestIndex + 1} / ${MINI_TEST_QUESTIONS.length}`;
+      document.getElementById('testCategoryTag').innerText = q.cat;
+      document.getElementById('testQuestionTitle').innerText = q.q;
+
+      const grid = document.getElementById('testAnswersGrid');
+      grid.innerHTML = q.options.map((opt, oIdx) => {
+        const isSelected = userTestAnswers[currentTestIndex] === oIdx;
+        return `
+          <button onclick="selectTestOption(${oIdx})" class="w-full text-left p-4 rounded-xl border ${isSelected ? 'bg-altay-darkgreen text-white border-altay-darkgreen font-bold' : 'bg-altay-cream hover:bg-altay-beige text-altay-dark border-altay-border'} text-sm sm:text-base transition duration-200">
+            ${opt}
+          </button>
+        `;
+      }).join('');
+
+      document.getElementById('testPrevBtn').disabled = (currentTestIndex === 0);
+      const nextBtn = document.getElementById('testNextBtn');
+      if (currentTestIndex === MINI_TEST_QUESTIONS.length - 1) {
+        nextBtn.innerHTML = `АЯҚТАУ <i class="fa-solid fa-check ml-2"></i>`;
+      } else {
+        nextBtn.innerHTML = `Келесі <i class="fa-solid fa-chevron-right ml-2"></i>`;
+      }
+    }
+
+    function selectTestOption(oIdx) {
+      userTestAnswers[currentTestIndex] = oIdx;
+      renderTestQuestion();
+    }
+
+    function prevTestQuestion() {
+      if (currentTestIndex > 0) {
+        currentTestIndex--;
+        renderTestQuestion();
+      }
+    }
+
+    function nextTestQuestion() {
+      if (currentTestIndex < MINI_TEST_QUESTIONS.length - 1) {
+        currentTestIndex++;
+        renderTestQuestion();
+      } else {
+        finishTest();
+      }
+    }
+
+    function finishTest() {
+      let correctCount = 0;
+      MINI_TEST_QUESTIONS.forEach((q, idx) => {
+        if (userTestAnswers[idx] === q.correct) {
+          correctCount++;
+        }
+      });
+
+      const percentage = Math.round((correctCount / MINI_TEST_QUESTIONS.length) * 100);
+
+      document.getElementById('testActiveArea').classList.add('hidden');
+      document.getElementById('testResultArea').classList.remove('hidden');
+
+      document.getElementById('testFinalScoreText').innerText = `${correctCount} / ${MINI_TEST_QUESTIONS.length}`;
+      document.getElementById('testPercentageText').innerText = `(${percentage}%)`;
+
+      const fbBox = document.getElementById('testFeedbackBox');
+      if (correctCount >= 13) {
+        fbBox.innerText = «Этномәдени кодтарды өте жақсы танисың!»;
+      } else if (correctCount >= 10) {
+        fbBox.innerText = «Оралхан әлемін жақсы таныдың!»;
+      } else if (correctCount >= 7) {
+        fbBox.innerText = «Жақсы нәтиже. Кейбір кодтарды қайта зерттеп көр.»;
+      } else {
+        fbBox.innerText = «Этносөздікке қайта кіріп, кодтарды зерттеп көр.»;
+      }
+    }
+
+    function restartTest() {
+      initTest();
+    }
+  </script>
+</body>
+</html>
